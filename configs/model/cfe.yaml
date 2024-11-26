@@ -1,0 +1,45 @@
+name: cfe
+_target_: strhub.models.cfe.system.CFE
+
+# Architecture
+num_control_points: 20
+enc_mlp_ratio: 4
+window_size: [[7, 11], [7, 11], [7, 11]]
+merge_types: 'Conv'
+local_type: 'r2'
+prenorm: False
+tps: False
+use_pe: True
+cclossexist: True
+cc_weights: 0.2
+fpn_layers: [0,1,2]
+dec_mlp_ratio: 4
+dec_depth: 1
+
+# base
+embed_dim: [128,256,384]
+enc_num_heads: [4,8,12]  
+depth: [3,6,9]  
+mixer_types: ['Local', 8, "Global", 10] 
+decoder_dim: 256      
+dec_num_heads: 8     
+
+# small
+# embed_dim: [96,192,256] 64,128,256
+# enc_num_heads: [3,6,8], 2,4,8
+# depth: [3,6,6] 3,6,3
+# mixer_types: ['Local', 8, "Global", 7] 
+# decoder_dim: 192      
+# dec_num_heads: 6     
+
+## tiny
+# embed_dim: [64,128,256]
+# enc_num_heads: [2,4,8]
+# depth: [3,6,3]
+# mixer_types: ['Local', 6, "Global", 6] 
+# decoder_dim: 128
+# dec_num_heads: 4
+
+# Training
+lr: 5e-4  
+dropout: 0.1
